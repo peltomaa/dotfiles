@@ -30,6 +30,11 @@ return {
       })
       lspconfig.gopls.setup({
         capabilities = capabilities,
+        settings = {
+          gopls = {
+            gofumpt = true,
+          },
+        },
       })
 
       local map = vim.keymap.set
