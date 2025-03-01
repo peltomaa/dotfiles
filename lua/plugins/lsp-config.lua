@@ -9,7 +9,16 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ts_ls", "eslint", "html", "gopls", "pyright", "tailwindcss" },
+        ensure_installed = {
+          "lua_ls",
+          "ts_ls",
+          "eslint",
+          "html",
+          "gopls",
+          "pyright",
+          "tailwindcss",
+          "phpactor",
+        },
       })
     end,
   },
@@ -44,6 +53,14 @@ return {
       })
       lspconfig.tailwindcss.setup({
         capabilities = capabilities,
+      })
+      lspconfig.phpactor.setup({
+        capabilities = capabilities,
+        init_options = {
+          ["language_server_phpstan.enabled"] = true,
+          ["language_server_psalm.enabled"] = true,
+          ["language_server_php_cs_fixer.enabled"] = true,
+        },
       })
 
       local map = vim.keymap.set
