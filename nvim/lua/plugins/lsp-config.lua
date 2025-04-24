@@ -18,6 +18,7 @@ return {
           "pyright",
           "tailwindcss",
           "phpactor",
+          "hls",
         },
       })
     end,
@@ -61,6 +62,10 @@ return {
           ["language_server_psalm.enabled"] = true,
           ["language_server_php_cs_fixer.enabled"] = true,
         },
+      })
+      lspconfig.hls.setup({
+        capabilities = capabilities,
+        filetypes = { "haskell", "lhaskell", "cabal" },
       })
 
       local map = vim.keymap.set

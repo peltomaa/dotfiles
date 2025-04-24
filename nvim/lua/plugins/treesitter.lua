@@ -22,6 +22,7 @@ return {
         "markdown",
         "python",
         "php",
+        "haskell",
       },
       sync_install = false,
       highlight = { enable = true },
