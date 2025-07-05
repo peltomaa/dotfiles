@@ -25,6 +25,7 @@ return {
 				"haskell",
 				"rust",
 				"ron",
+				"graphql",
 			},
 			sync_install = false,
 			highlight = { enable = true },

@@ -20,6 +20,7 @@ return {
 					"phpactor",
 					"hls",
 					"rust_analyzer",
+					"graphql-language-service-cli",
 				},
 			})
 		end,
@@ -69,6 +70,9 @@ return {
 				filetypes = { "haskell", "lhaskell", "cabal" },
 			})
 			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.graphql.setup({
 				capabilities = capabilities,
 			})
 
