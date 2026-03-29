@@ -5,6 +5,13 @@ return {
     local conform = require("conform")
 
     conform.setup({
+      formatters = {
+        ["clang-format"] = {
+          command = "xcrun",
+          args = { "clang-format", "-i", "$FILENAME" },
+          stdin = false,
+        },
+      },
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "ruff_format" },
@@ -13,6 +20,8 @@ return {
         typescript = { "prettierd", "prettier" },
         javascriptreact = { "prettierd", "prettier" },
         typescriptreact = { "prettierd", "prettier" },
+        c = { "clang-format" },
+        cpp = { "clang-format" },
       },
       format_on_save = {
         timeout_ms = 500,

@@ -19,6 +19,7 @@ return {
 					"tailwindcss",
 					"phpactor",
 					"hls",
+					"clangd",
 				},
 			})
 		end,
@@ -112,6 +113,20 @@ return {
 				filetypes = { "haskell", "lhaskell", "cabal" },
 			})
 			vim.lsp.enable("hls")
+
+			vim.lsp.config("clangd", {
+				capabilities = capabilities,
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--clang-tidy",
+					"--header-insertion=iwyu",
+					"--completion-style=bundled",
+					"--pch-storage=memory",
+					"--cross-file-rename",
+				},
+			})
+			vim.lsp.enable("clangd")
 
 			local map = vim.keymap.set
 
