@@ -1,9 +1,8 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
+  "romus204/tree-sitter-manager.nvim",
+  dependencies = {}, -- tree-sitter CLI must be installed system-wide
   config = function()
-    local configs = require("nvim-treesitter.configs")
-    configs.setup({
+    require("tree-sitter-manager").setup({
       ensure_installed = {
         "c",
         "cpp",
@@ -33,5 +32,5 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
     })
-  end,
+  end
 }
